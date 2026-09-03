@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Veterinaria Patitas</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="contenedor">
+<h1>Veterinaria Patitas</h1>
+<h2>Solicitud de cita</h2>
+<label>Nombre del cliente:</label>
+<input type="text" id="nombre">
+<label>Teléfono:</label>
+<input type="tel" id="telefono">
+<label>Nombre de la mascota:</label>
+<input type="text" id="mascota">
+<label>Tipo de mascota:</label>
+<select id="tipo">
+<option>Perrito</option</option>
+<option>Gatito</option</option>
+<option>Otro</option</option>
+</select>
+<label>Fecha de la cita:</label>
+<input type="date" id="fecha">
+<label>Horario:</label>
+<select id="horario">
+<option>09:00</option>
+<option>10:00</option>
+<option>11:00</option>
+<option>12:00</option>
+</select>
+<button onclick="solicitarCita()">
+Solicitar cita
+</button>
+<p id="mensaje"></script>
+</body>
+</html>
