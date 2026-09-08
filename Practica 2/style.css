@@ -1,0 +1,1067 @@
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f7fbf5;
+    color: #1A330C;
+    line-height: 1.6;
+}
+
+
+
+/* =========================================
+   ENCABEZADO
+========================================= */
+
+header {
+    width: 100%;
+    padding: 20px 8%;
+
+    background-color: #1A330C;
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
+}
+
+
+.logo h1 {
+    font-size: 25px;
+    letter-spacing: 0.5px;
+}
+
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+
+nav a {
+    color: white;
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+
+nav a:hover {
+    color: #CEF1BA;
+}
+
+
+
+/* =========================================
+   SECCIÓN PRINCIPAL
+========================================= */
+
+.principal {
+    min-height: 520px;
+
+    padding: 70px 10%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+
+    background: linear-gradient(
+        135deg,
+        #CEF1BA,
+        #ABBF9F
+    );
+}
+
+
+.texto-principal {
+    width: 50%;
+}
+
+
+.etiqueta {
+    display: inline-block;
+
+    margin-bottom: 10px;
+
+    color: #395926;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+
+.texto-principal h2 {
+    font-size: 48px;
+
+    color: #1A330C;
+
+    line-height: 1.15;
+
+    margin-bottom: 20px;
+}
+
+
+.texto-principal p {
+    font-size: 18px;
+
+    max-width: 600px;
+
+    margin-bottom: 25px;
+
+    color: #395926;
+}
+
+
+.boton-inicio {
+    display: inline-block;
+
+    padding: 14px 30px;
+
+    background-color: #395926;
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+
+.boton-inicio:hover {
+    background-color: #1A330C;
+    transform: translateY(-2px);
+}
+
+
+
+/* =========================================
+   IMAGEN PRINCIPAL
+========================================= */
+
+.imagen-principal {
+    width: 45%;
+
+    display: flex;
+    justify-content: center;
+}
+
+
+.imagen-principal img {
+    width: 100%;
+    max-width: 430px;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    border-radius: 25px;
+
+    box-shadow: 0 15px 35px rgba(26, 51, 12, 0.25);
+
+    border: 6px solid rgba(255, 255, 255, 0.55);
+}
+
+
+
+/* =========================================
+   PRODUCTOS
+========================================= */
+
+.productos {
+    padding: 70px 8%;
+
+    text-align: center;
+
+    background-color: #f7fbf5;
+}
+
+
+.productos h2 {
+    font-size: 36px;
+
+    color: #1A330C;
+
+    margin-bottom: 10px;
+}
+
+
+.subtitulo-productos {
+    color: #6B8C58;
+
+    margin-bottom: 40px;
+
+    font-size: 17px;
+}
+
+
+
+/* =========================================
+   TARJETAS DE PRODUCTOS
+========================================= */
+
+.tarjetas {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 30px;
+}
+
+
+.tarjeta {
+    background-color: white;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    box-shadow: 0 6px 20px rgba(26, 51, 12, 0.12);
+
+    border: 1px solid #ABBF9F;
+
+    transition: 0.3s;
+
+    text-align: left;
+}
+
+
+.tarjeta:hover {
+    transform: translateY(-7px);
+
+    box-shadow: 0 12px 30px rgba(26, 51, 12, 0.20);
+}
+
+
+
+/* =========================================
+   IMAGEN DE TARJETA
+========================================= */
+
+.contenedor-imagen {
+    width: 100%;
+    height: 210px;
+
+    overflow: hidden;
+
+    background-color: #CEF1BA;
+}
+
+
+.contenedor-imagen img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.4s;
+}
+
+
+.tarjeta:hover .contenedor-imagen img {
+    transform: scale(1.05);
+}
+
+
+
+/* =========================================
+   CONTENIDO DE TARJETA
+========================================= */
+
+.contenido-tarjeta {
+    padding: 20px;
+}
+
+
+.contenido-tarjeta h3 {
+    font-size: 21px;
+
+    color: #1A330C;
+
+    margin-bottom: 8px;
+}
+
+
+.descripcion {
+    font-size: 14px;
+
+    color: #6B8C58;
+
+    min-height: 48px;
+
+    margin-bottom: 18px;
+}
+
+
+.parte-inferior-tarjeta {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.precio {
+    font-size: 23px;
+
+    font-weight: bold;
+
+    color: #395926;
+}
+
+
+
+/* =========================================
+   BOTÓN ELEGIR
+========================================= */
+
+.boton-agregar {
+    padding: 10px 20px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background-color: #6B8C58;
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.boton-agregar:hover {
+    background-color: #395926;
+}
+
+
+
+/* =========================================
+   SECCIÓN PEDIDO
+========================================= */
+
+.seccion-pedido {
+    padding: 70px 8%;
+
+    background-color: #CEF1BA;
+}
+
+
+.encabezado-pedido {
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+
+.encabezado-pedido h2 {
+    font-size: 36px;
+
+    color: #1A330C;
+
+    margin-bottom: 8px;
+}
+
+
+.encabezado-pedido > p:last-child {
+    color: #395926;
+}
+
+
+
+/* =========================================
+   CONTENEDOR PEDIDO
+========================================= */
+
+.contenedor-pedido {
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 35px;
+
+    align-items: stretch;
+}
+
+
+
+/* =========================================
+   FORMULARIO
+========================================= */
+
+.pedido {
+    background-color: white;
+
+    padding: 32px;
+
+    border-radius: 16px;
+
+    box-shadow: 0 8px 25px rgba(26, 51, 12, 0.16);
+}
+
+
+.pedido h3 {
+    font-size: 24px;
+
+    color: #1A330C;
+
+    margin-bottom: 20px;
+}
+
+
+
+/* =========================================
+   CAMPOS DEL FORMULARIO
+========================================= */
+
+.grupo-formulario {
+    margin-bottom: 20px;
+}
+
+
+.grupo-formulario label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #395926;
+
+    font-weight: bold;
+}
+
+
+.grupo-formulario input,
+.grupo-formulario select {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #ABBF9F;
+
+    border-radius: 7px;
+
+    font-size: 15px;
+
+    color: #1A330C;
+
+    background-color: white;
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+
+.grupo-formulario input:focus,
+.grupo-formulario select:focus {
+    border-color: #395926;
+
+    box-shadow: 0 0 0 3px rgba(107, 140, 88, 0.18);
+}
+
+
+
+/* =========================================
+   MENSAJES DE ERROR
+========================================= */
+
+.mensaje-error {
+    display: block;
+
+    min-height: 18px;
+
+    margin-top: 5px;
+
+    color: #a13030;
+
+    font-size: 13px;
+}
+
+
+
+/* =========================================
+   CONTROL DE CANTIDAD
+========================================= */
+
+.control-cantidad {
+    display: grid;
+
+    grid-template-columns: 48px 1fr 48px;
+
+    gap: 10px;
+
+    align-items: center;
+}
+
+
+.control-cantidad input {
+    text-align: center;
+
+    font-size: 17px;
+
+    font-weight: bold;
+}
+
+
+.boton-cantidad {
+    height: 44px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background-color: #ABBF9F;
+
+    color: #1A330C;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.boton-cantidad:hover {
+    background-color: #6B8C58;
+
+    color: white;
+}
+
+
+
+/* =========================================
+   TOTAL
+========================================= */
+
+.resumen-total {
+    margin-top: 25px;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    background-color: #CEF1BA;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.resumen-total span {
+    font-size: 14px;
+
+    color: #395926;
+
+    font-weight: bold;
+}
+
+
+.resumen-total p {
+    font-size: 13px;
+
+    color: #6B8C58;
+
+    margin-top: 3px;
+}
+
+
+#total {
+    font-size: 30px;
+
+    color: #1A330C;
+}
+
+
+
+/* =========================================
+   BOTÓN REALIZAR PEDIDO
+========================================= */
+
+.boton-pedido {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background-color: #395926;
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.boton-pedido:hover {
+    background-color: #1A330C;
+
+    transform: translateY(-2px);
+}
+
+
+
+/* =========================================
+   TICKET
+========================================= */
+
+.ticket {
+    background-color: white;
+
+    padding: 32px;
+
+    border-radius: 16px;
+
+    box-shadow: 0 8px 25px rgba(26, 51, 12, 0.16);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    min-height: 430px;
+}
+
+
+
+/* =========================================
+   TICKET INICIAL
+========================================= */
+
+.ticket-inicial {
+    max-width: 300px;
+}
+
+
+.icono-ticket {
+    width: 85px;
+    height: 85px;
+
+    margin: 0 auto 20px;
+
+    background-color: #CEF1BA;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    font-size: 38px;
+}
+
+
+.ticket-inicial h3 {
+    color: #1A330C;
+
+    margin-bottom: 10px;
+}
+
+
+.ticket-inicial p {
+    color: #6B8C58;
+}
+
+
+
+/* =========================================
+   TICKET CONFIRMADO
+========================================= */
+
+.ticket-confirmado {
+    display: block;
+
+    text-align: center;
+}
+
+
+.ticket-icono {
+    width: 70px;
+    height: 70px;
+
+    margin: 0 auto 15px;
+
+    border-radius: 50%;
+
+    background-color: #395926;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 35px;
+
+    font-weight: bold;
+}
+
+
+.ticket-etiqueta {
+    display: inline-block;
+
+    padding: 6px 15px;
+
+    border-radius: 20px;
+
+    background-color: #CEF1BA;
+
+    color: #395926;
+
+    font-weight: bold;
+
+    font-size: 13px;
+
+    margin-bottom: 12px;
+}
+
+
+.ticket-confirmado h3 {
+    font-size: 26px;
+
+    color: #1A330C;
+
+    margin-bottom: 8px;
+}
+
+
+.aviso-exito {
+    color: #395926;
+
+    font-weight: bold;
+
+    margin-bottom: 20px;
+}
+
+
+
+/* =========================================
+   DATOS DEL TICKET
+========================================= */
+
+.ticket-datos {
+    width: 100%;
+
+    margin: 20px 0;
+
+    border-top: 1px solid #ABBF9F;
+
+    border-bottom: 1px solid #ABBF9F;
+}
+
+
+.ticket-fila {
+    padding: 13px 4px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-bottom: 1px solid #e4eedf;
+}
+
+
+.ticket-fila:last-child {
+    border-bottom: none;
+}
+
+
+.ticket-fila span {
+    color: #6B8C58;
+}
+
+
+.ticket-fila strong {
+    color: #1A330C;
+
+    text-align: right;
+}
+
+
+.ticket-total {
+    font-size: 20px;
+
+    background-color: #f5faF2;
+}
+
+
+.ticket-total strong {
+    color: #395926;
+}
+
+
+
+/* =========================================
+   PIE DE PÁGINA
+========================================= */
+
+footer {
+    padding: 30px 8%;
+
+    background-color: #1A330C;
+
+    color: white;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+}
+
+
+footer h3 {
+    margin-bottom: 5px;
+}
+
+
+footer p {
+    color: #CEF1BA;
+
+    font-size: 14px;
+}
+
+
+
+/* =========================================
+   RESPONSIVE - TABLETS
+========================================= */
+
+@media (max-width: 950px) {
+
+    .principal {
+        padding: 60px 7%;
+
+        gap: 35px;
+    }
+
+
+    .texto-principal h2 {
+        font-size: 38px;
+    }
+
+
+    .tarjetas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .contenedor-pedido {
+        grid-template-columns: 1fr;
+    }
+
+
+    .ticket {
+        min-height: 350px;
+    }
+
+}
+
+
+
+/* =========================================
+   RESPONSIVE - CELULARES
+========================================= */
+
+@media (max-width: 650px) {
+
+    header {
+        padding: 18px 5%;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+
+    nav {
+        gap: 20px;
+    }
+
+
+    nav a {
+        font-size: 14px;
+    }
+
+
+
+    .principal {
+        min-height: auto;
+
+        padding: 50px 7%;
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+
+    .texto-principal {
+        width: 100%;
+    }
+
+
+    .texto-principal h2 {
+        font-size: 34px;
+    }
+
+
+    .texto-principal p {
+        font-size: 16px;
+    }
+
+
+    .imagen-principal {
+        width: 100%;
+    }
+
+
+    .imagen-principal img {
+        max-width: 350px;
+    }
+
+
+
+    .productos {
+        padding: 55px 7%;
+    }
+
+
+    .productos h2 {
+        font-size: 30px;
+    }
+
+
+    .tarjetas {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+
+
+    .seccion-pedido {
+        padding: 55px 5%;
+    }
+
+
+    .encabezado-pedido h2 {
+        font-size: 30px;
+    }
+
+
+    .pedido,
+    .ticket {
+        padding: 25px 20px;
+    }
+
+
+
+    footer {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+}
+
+
+
+/* =========================================
+   PANTALLAS MUY PEQUEÑAS
+========================================= */
+
+@media (max-width: 400px) {
+
+    .texto-principal h2 {
+        font-size: 29px;
+    }
+
+
+    nav {
+        gap: 12px;
+    }
+
+
+    .parte-inferior-tarjeta {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .boton-agregar {
+        width: 100%;
+    }
+
+
+    .resumen-total {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+}

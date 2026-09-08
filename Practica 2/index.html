@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Cafetería Campus</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         ENCABEZADO
+    ========================== -->
+
+    <header>
+
+        <div class="logo">
+
+            <h1>
+                Cafetería Campus
+            </h1>
+
+        </div>
+
+
+        <nav>
+
+            <a href="#inicio">
+                Inicio
+            </a>
+
+            <a href="#menu">
+                Menú
+            </a>
+
+            <a href="#pedido">
+                Pedido
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =========================
+         INICIO
+    ========================== -->
+
+    <section
+        class="principal"
+        id="inicio"
+    >
+
+
+        <div class="texto-principal">
+
+            <p class="etiqueta">
+                Cafetería Campus
+            </p>
+
+            <h2>
+                Tu café favorito,
+                sin esperar tanto
+            </h2>
+
+            <p>
+                Elige lo que quieras de nuestro menú,
+                selecciona la cantidad y realiza tu pedido
+                de una manera rápida y sencilla.
+            </p>
+
+
+            <a
+                href="#menu"
+                class="boton-inicio"
+            >
+                Ver menú
+            </a>
+
+        </div>
+
+
+
+        <div class="imagen-principal">
+
+            <img
+                src="img/cafe.png"
+                alt="Café americano"
+            >
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         PRODUCTOS
+    ========================== -->
+
+    <section
+        class="productos"
+        id="menu"
+    >
+
+
+        <p class="etiqueta">
+            Nuestro menú
+        </p>
+
+        <h2>
+            Elige tu favorito
+        </h2>
+
+
+        <p class="subtitulo-productos">
+
+            Tenemos diferentes opciones para acompañar
+            tu día en el campus.
+
+        </p>
+
+
+
+        <div class="tarjetas">
+
+
+            <!-- =====================
+                 CAFÉ
+            ====================== -->
+
+            <div class="tarjeta">
+
+
+                <div class="contenedor-imagen">
+
+                    <img
+                        src="img/cafe.png"
+                        alt="Café americano"
+                    >
+
+                </div>
+
+
+                <div class="contenido-tarjeta">
+
+                    <h3>
+                        Café americano
+                    </h3>
+
+                    <p class="descripcion">
+
+                        Café caliente recién preparado,
+                        ideal para comenzar el día.
+
+                    </p>
+
+
+                    <div class="parte-inferior-tarjeta">
+
+                        <p class="precio">
+                            $35
+                        </p>
+
+
+                        <button
+                            type="button"
+                            class="boton-agregar"
+                            data-producto="35"
+                        >
+                            Elegir
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =====================
+                 TÉ
+            ====================== -->
+
+            <div class="tarjeta">
+
+
+                <div class="contenedor-imagen">
+
+                    <img
+                        src="img/te.png"
+                        alt="Té caliente"
+                    >
+
+                </div>
+
+
+                <div class="contenido-tarjeta">
+
+                    <h3>
+                        Té
+                    </h3>
+
+
+                    <p class="descripcion">
+
+                        Una bebida caliente y ligera
+                        para disfrutar en cualquier momento.
+
+                    </p>
+
+
+                    <div class="parte-inferior-tarjeta">
+
+                        <p class="precio">
+                            $25
+                        </p>
+
+
+                        <button
+                            type="button"
+                            class="boton-agregar"
+                            data-producto="25"
+                        >
+                            Elegir
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =====================
+                 PAN DULCE
+            ====================== -->
+
+            <div class="tarjeta">
+
+
+                <div class="contenedor-imagen">
+
+                    <img
+                        src="img/pan_dulce.png"
+                        alt="Pan dulce"
+                    >
+
+                </div>
+
+
+                <div class="contenido-tarjeta">
+
+                    <h3>
+                        Pan dulce
+                    </h3>
+
+
+                    <p class="descripcion">
+
+                        Pan dulce recién horneado,
+                        perfecto para acompañar tu bebida.
+
+                    </p>
+
+
+                    <div class="parte-inferior-tarjeta">
+
+                        <p class="precio">
+                            $40
+                        </p>
+
+
+                        <button
+                            type="button"
+                            class="boton-agregar"
+                            data-producto="40"
+                        >
+                            Elegir
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =====================
+                 LATE
+            ====================== -->
+
+            <div class="tarjeta">
+
+
+                <div class="contenedor-imagen">
+
+                    <img
+                        src="img/late.png"
+                        alt="Late"
+                    >
+
+                </div>
+
+
+                <div class="contenido-tarjeta">
+
+                    <h3>
+                        Late
+                    </h3>
+
+
+                    <p class="descripcion">
+
+                        Café con leche y una deliciosa
+                        capa de espuma cremosa.
+
+                    </p>
+
+
+                    <div class="parte-inferior-tarjeta">
+
+                        <p class="precio">
+                            $45
+                        </p>
+
+
+                        <button
+                            type="button"
+                            class="boton-agregar"
+                            data-producto="45"
+                        >
+                            Elegir
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =====================
+                 SÁNDWICH
+            ====================== -->
+
+            <div class="tarjeta">
+
+
+                <div class="contenedor-imagen">
+
+                    <img
+                        src="img/sandwich.png"
+                        alt="Sándwich"
+                    >
+
+                </div>
+
+
+                <div class="contenido-tarjeta">
+
+                    <h3>
+                        Sándwich
+                    </h3>
+
+
+                    <p class="descripcion">
+
+                        Sándwich preparado con jamón,
+                        queso y vegetales frescos.
+
+                    </p>
+
+
+                    <div class="parte-inferior-tarjeta">
+
+                        <p class="precio">
+                            $55
+                        </p>
+
+
+                        <button
+                            type="button"
+                            class="boton-agregar"
+                            data-producto="55"
+                        >
+                            Elegir
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =====================
+                 GALLETAS
+            ====================== -->
+
+            <div class="tarjeta">
+
+
+                <div class="contenedor-imagen">
+
+                    <img
+                        src="img/cookies.png"
+                        alt="Galletas con chocolate"
+                    >
+
+                </div>
+
+
+                <div class="contenido-tarjeta">
+
+                    <h3>
+                        Galletas
+                    </h3>
+
+
+                    <p class="descripcion">
+
+                        Galletas recién horneadas
+                        con deliciosas chispas de chocolate.
+
+                    </p>
+
+
+                    <div class="parte-inferior-tarjeta">
+
+                        <p class="precio">
+                            $30
+                        </p>
+
+
+                        <button
+                            type="button"
+                            class="boton-agregar"
+                            data-producto="30"
+                        >
+                            Elegir
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         SECCIÓN DE PEDIDO
+    ========================== -->
+
+    <section
+        class="seccion-pedido"
+        id="pedido"
+    >
+
+
+        <div class="encabezado-pedido">
+
+            <p class="etiqueta">
+                Haz tu pedido
+            </p>
+
+            <h2>
+                ¿Qué se te antoja hoy?
+            </h2>
+
+            <p>
+                Completa los datos y confirma tu pedido.
+            </p>
+
+        </div>
+
+
+
+        <div class="contenedor-pedido">
+
+
+
+            <!-- =====================
+                 FORMULARIO
+            ====================== -->
+
+            <form
+                class="pedido"
+                id="formPedido"
+            >
+
+
+                <h3>
+                    Datos del pedido
+                </h3>
+
+
+
+                <!-- Nombre -->
+
+                <div class="grupo-formulario">
+
+                    <label for="nombre">
+                        Nombre:
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nombre"
+                        placeholder="Ej. Carlos"
+                        autocomplete="off"
+                    >
+
+                    <small
+                        class="mensaje-error"
+                        id="errorNombre"
+                    ></small>
+
+                </div>
+
+
+
+                <!-- Producto -->
+
+                <div class="grupo-formulario">
+
+                    <label for="producto">
+                        Producto:
+                    </label>
+
+
+                    <select id="producto">
+
+
+                        <option
+                            value="35"
+                            data-nombre="Café americano"
+                        >
+                            Café americano - $35
+                        </option>
+
+
+                        <option
+                            value="25"
+                            data-nombre="Té"
+                        >
+                            Té - $25
+                        </option>
+
+
+                        <option
+                            value="40"
+                            data-nombre="Pan dulce"
+                        >
+                            Pan dulce - $40
+                        </option>
+
+
+                        <option
+                            value="45"
+                            data-nombre="Late"
+                        >
+                            Late - $45
+                        </option>
+
+
+                        <option
+                            value="55"
+                            data-nombre="Sándwich"
+                        >
+                            Sándwich - $55
+                        </option>
+
+
+                        <option
+                            value="30"
+                            data-nombre="Galletas"
+                        >
+                            Galletas - $30
+                        </option>
+
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- Cantidad -->
+
+                <div class="grupo-formulario">
+
+                    <label for="cantidad">
+                        Cantidad:
+                    </label>
+
+
+                    <div class="control-cantidad">
+
+
+                        <button
+                            type="button"
+                            id="restar"
+                            class="boton-cantidad"
+                        >
+                            −
+                        </button>
+
+
+                        <input
+                            type="number"
+                            id="cantidad"
+                            value="1"
+                            min="1"
+                            max="20"
+                        >
+
+
+                        <button
+                            type="button"
+                            id="sumar"
+                            class="boton-cantidad"
+                        >
+                            +
+                        </button>
+
+
+                    </div>
+
+
+                    <small
+                        class="mensaje-error"
+                        id="errorCantidad"
+                    ></small>
+
+                </div>
+
+
+
+                <!-- Total -->
+
+                <div class="resumen-total">
+
+
+                    <div>
+
+                        <span>
+                            Total a pagar
+                        </span>
+
+                        <p id="detalleTotal">
+                            1 × $35
+                        </p>
+
+                    </div>
+
+
+                    <strong id="total">
+                        $35
+                    </strong>
+
+
+                </div>
+
+
+
+                <!-- Confirmar -->
+
+                <button
+                    type="submit"
+                    class="boton-pedido"
+                >
+                    Realizar pedido
+                </button>
+
+
+            </form>
+
+
+
+            <!-- =====================
+                 TICKET
+            ====================== -->
+
+            <div
+                class="ticket"
+                id="ticket"
+            >
+
+
+                <div class="ticket-inicial">
+
+
+                    <div class="icono-ticket">
+
+                        ☕
+
+                    </div>
+
+
+                    <h3>
+                        Tu pedido aparecerá aquí
+                    </h3>
+
+
+                    <p>
+
+                        Cuando confirmes tu pedido,
+                        podrás ver los datos y tu
+                        número de pedido.
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         PIE DE PÁGINA
+    ========================== -->
+
+    <footer>
+
+
+        <div>
+
+            <h3>
+                Cafetería Campus
+            </h3>
+
+            <p>
+                Tu descanso favorito durante las clases.
+            </p>
+
+        </div>
+
+
+        <p>
+            © 2026 Cafetería Campus
+        </p>
+
+
+    </footer>
+
+
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
