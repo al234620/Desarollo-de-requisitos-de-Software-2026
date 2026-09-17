@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#183b31">
+  <meta name="description" content="Prototipo de control de inventario y ventas para una zapatería.">
+  <title>Paso Firme | Control de zapatería</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" data-link="inicio" aria-label="Paso Firme, ir al inicio">
+        <span class="brand-icon" aria-hidden="true">↗</span>
+        <span><strong>Paso Firme</strong><small>Gestión de zapatería</small></span>
+      </a>
+      <p class="nav-title">ESPACIO DE TRABAJO</p>
+      <nav class="nav" aria-label="Secciones">
+        <button class="nav-button active" type="button" data-view="inicio" aria-current="page"><span aria-hidden="true">◫</span> Resumen</button>
+        <button class="nav-button" type="button" data-view="catalogo"><span aria-hidden="true">▦</span> Inventario</button>
+        <button class="nav-button" type="button" data-view="nuevo"><span aria-hidden="true">＋</span> Nuevo producto</button>
+        <button class="nav-button" type="button" data-view="venta"><span aria-hidden="true">◇</span> Registrar venta</button>
+        <button class="nav-button" type="button" data-view="ajuste"><span aria-hidden="true">↕</span> Ajustar existencias</button>
+        <button class="nav-button" type="button" data-view="historial"><span aria-hidden="true">▤</span> Historial</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <span class="status-dot" aria-hidden="true"></span> Prototipo local
+        <small>Los datos se guardan solo en este navegador.</small>
+      </div>
+    </aside>
+
+    <div class="workspace">
+      <header class="topbar">
+        <div class="topbar-brand">PASO FIRME <span>/ PANEL INTERNO</span></div>
+        <span class="topbar-pill">Inventario y ventas</span>
+      </header>
+
+      <main class="content" id="contenido">
+        <div id="notification" class="notification" role="status" aria-live="polite" hidden></div>
+        <section id="inicio" class="view active" aria-labelledby="tituloInicio">
+          <div class="page-heading">
+            <div><p class="eyebrow">VISTA GENERAL</p><h1 id="tituloInicio">Todo en orden, par a par.</h1><p>Consulta lo que tienes en tienda y registra cada movimiento.</p></div>
+            <button class="btn primary" type="button" data-go="venta">＋ Nueva venta</button>
+          </div>
+          <div class="metrics">
+            <article class="metric"><span>Referencias registradas</span><strong id="metricProductos">—</strong><small>Productos y tallas</small></article>
+            <article class="metric"><span>Pares disponibles</span><strong id="metricPares">—</strong><small>Existencia total</small></article>
+            <article class="metric"><span>Existencia baja</span><strong id="metricBajo">—</strong><small>2 pares o menos</small></article>
+            <article class="metric"><span>Importe de ventas</span><strong id="metricIngresos">—</strong><small>Ventas registradas aquí</small></article>
+          </div>
+          <div class="home-grid">
+            <article class="surface featured">
+              <span class="overline">ACCESO RÁPIDO</span>
+              <h2>Encuentra un producto sin perder tiempo.</h2>
+              <p>Busca por código, marca o modelo; después consulta precio, talla y existencias.</p>
+              <button class="btn light" type="button" data-go="catalogo">Abrir inventario →</button>
+              <div class="featured-art" aria-hidden="true">PF<span> / 01</span></div>
+            </article>
+            <article class="surface attention">
+              <div class="section-header"><div><span class="overline">ATENCIÓN AL INVENTARIO</span><h2>Por reabastecer</h2></div><span class="tiny-pill">≤ 2 pares</span></div>
+              <div id="lowStockList" class="low-list"><p class="muted">Cargando productos…</p></div>
+              <button class="text-link" type="button" data-go="ajuste">Actualizar existencias →</button>
+            </article>
+          </div>
+        </section>
+
+        <section id="catalogo" class="view" aria-labelledby="tituloCatalogo" hidden>
+          <div class="page-heading"><div><p class="eyebrow">PRODUCTOS</p><h1 id="tituloCatalogo">Inventario</h1><p>Una vista visual de las referencias disponibles.</p></div><button class="btn primary" type="button" data-go="nuevo">＋ Agregar producto</button></div>
+          <div class="surface filters">
+            <label class="search-field"><span class="sr-only">Buscar producto</span><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Buscar código, marca o modelo…" autocomplete="off"></label>
+            <label class="select-field"><span class="sr-only">Filtrar por categoría</span><select id="categoryFilter"><option value="">Todas las categorías</option></select></label>
+            <label class="select-field"><span class="sr-only">Filtrar por existencia</span><select id="stockFilter"><option value="">Cualquier existencia</option><option value="available">Disponible</option><option value="low">Existencia baja (1–2)</option><option value="empty">Agotado</option></select></label>
+          </div>
+          <p class="results-label" id="resultsLabel" aria-live="polite"></p>
+          <div class="product-grid" id="productGrid"></div>
+        </section>
+
+        <section id="nuevo" class="view" aria-labelledby="tituloNuevo" hidden>
+          <div class="page-heading"><div><p class="eyebrow">ALTA DE PRODUCTOS</p><h1 id="tituloNuevo">Agregar al inventario</h1><p>Registra una referencia que todavía no exista en el sistema.</p></div></div>
+          <form id="productForm" class="surface form-card">
+            <div class="form-title"><span class="form-number">01</span><div><h2>Datos del calzado</h2><p>Todos los campos son obligatorios.</p></div></div>
+            <div class="form-grid">
+              <label>Código <input name="codigo" type="text" maxlength="25" placeholder="Ej. Z026" required></label>
+              <label>Marca <input name="marca" type="text" maxlength="60" placeholder="Ej. Nike" required></label>
+              <label>Modelo <input name="modelo" type="text" maxlength="80" placeholder="Ej. Air Max" required></label>
+              <label>Categoría <select name="categoria" required><option value="">Selecciona una</option><option>Tenis</option><option>Casual</option><option>Zapato</option><option>Tacón</option><option>Bota</option></select></label>
+              <label>Talla MX <input name="talla" type="number" min="1" max="50" step="0.5" placeholder="Ej. 25.5" required></label>
+              <label>Precio (MXN) <input name="precio" type="number" min="0.01" step="0.01" placeholder="Ej. 1499.00" required></label>
+              <label>Existencia inicial (pares) <input name="existencia" type="number" min="0" step="1" placeholder="Ej. 5" required></label>
+            </div>
+            <div class="form-actions"><button class="btn primary" type="submit">Guardar producto</button><button class="btn secondary" type="reset">Limpiar campos</button></div>
+          </form>
+        </section>
+
+        <section id="venta" class="view" aria-labelledby="tituloVenta" hidden>
+          <div class="page-heading"><div><p class="eyebrow">SALIDA DE INVENTARIO</p><h1 id="tituloVenta">Registrar una venta</h1><p>La existencia se descontará después de confirmar el registro.</p></div></div>
+          <div class="two-col">
+            <form id="saleForm" class="surface form-card">
+              <div class="form-title"><span class="form-number">02</span><div><h2>Datos de la venta</h2><p>Una referencia por registro.</p></div></div>
+              <div class="form-grid single">
+                <label>Producto disponible <select id="saleProduct" name="codigo" required><option value="">Selecciona un producto</option></select></label>
+                <label>Cantidad de pares <input id="saleQuantity" name="cantidad" type="number" min="1" step="1" value="1" required></label>
+              </div>
+              <div class="form-actions"><button class="btn primary" type="submit">Confirmar venta</button></div>
+            </form>
+            <aside class="surface receipt" aria-live="polite"><p class="overline">RESUMEN DE VENTA</p><h2 id="salePreviewName">Selecciona un producto</h2><div class="receipt-line"><span>Precio por par</span><strong id="salePreviewUnit">—</strong></div><div class="receipt-line"><span>Disponibles</span><strong id="salePreviewStock">—</strong></div><div class="receipt-total"><span>Total estimado</span><strong id="salePreviewTotal">—</strong></div><p class="muted small">El total y la existencia se calculan antes de guardar.</p></aside>
+          </div>
+        </section>
+
+        <section id="ajuste" class="view" aria-labelledby="tituloAjuste" hidden>
+          <div class="page-heading"><div><p class="eyebrow">CONTROL DE EXISTENCIAS</p><h1 id="tituloAjuste">Ajustar inventario</h1><p>Actualiza el conteo después de recibir mercancía o revisar la tienda.</p></div></div>
+          <form id="stockForm" class="surface form-card">
+            <div class="form-title"><span class="form-number">03</span><div><h2>Nuevo conteo</h2><p>El cambio quedará registrado en el historial de ajustes.</p></div></div>
+            <div class="form-grid single">
+              <label>Producto <select id="stockProduct" name="codigo" required><option value="">Selecciona un producto</option></select></label>
+              <p class="stock-current" id="currentStock">Existencia actual: —</p>
+              <label>Nueva existencia (pares) <input name="nuevaExistencia" id="newStock" type="number" min="0" step="1" required></label>
+              <label>Motivo del cambio <input name="motivo" type="text" maxlength="120" placeholder="Ej. Recibimos nueva mercancía" required></label>
+            </div>
+            <div class="form-actions"><button class="btn primary" type="submit">Guardar ajuste</button></div>
+          </form>
+        </section>
+
+        <section id="historial" class="view" aria-labelledby="tituloHistorial" hidden>
+          <div class="page-heading"><div><p class="eyebrow">SEGUIMIENTO</p><h1 id="tituloHistorial">Historial de movimientos</h1><p>Consulta ventas y modificaciones de existencias realizadas en este navegador.</p></div></div>
+          <div class="surface history-section"><div class="section-header"><h2>Ventas</h2><span id="saleCount" class="tiny-pill">0 registros</span></div><div class="table-scroll"><table><thead><tr><th>Folio</th><th>Fecha</th><th>Producto</th><th>Cantidad</th><th>Total</th></tr></thead><tbody id="salesTable"><tr><td colspan="5">Sin ventas registradas.</td></tr></tbody></table></div></div>
+          <div class="surface history-section"><div class="section-header"><h2>Ajustes de inventario</h2><span id="adjustCount" class="tiny-pill">0 registros</span></div><div class="table-scroll"><table><thead><tr><th>Fecha</th><th>Producto</th><th>Antes → después</th><th>Motivo</th></tr></thead><tbody id="adjustTable"><tr><td colspan="4">Sin ajustes registrados.</td></tr></tbody></table></div></div>
+        </section>
+      </main>
+
+      <footer class="footer"><span>Proyecto académico · Paso Firme</span><span>Datos locales · Sin cobros reales</span></footer>
+    </div>
+  </div>
+</body>
+</html>
