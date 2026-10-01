@@ -1,0 +1,80 @@
+[
+    {
+        "cliente": "Carlos",
+        "marca": "Samsung",
+        "modelo": "A54",
+        "problema": "Pantalla rota",
+        "costo": "1500",
+        "estado": "En reparación",
+        "foto": "cel1.png"
+    },
+    {
+        "cliente": "María",
+        "marca": "Apple",
+        "modelo": "iPhone 13",
+        "problema": "La batería dura muy poco",
+        "costo": "900",
+        "estado": "Terminado",
+        "foto": "cel2.png"
+    },
+    {
+        "cliente": "Luis",
+        "marca": "Motorola",
+        "modelo": "G84",
+        "problema": "El equipo no enciende",
+        "costo": "700",
+        "estado": "Pendiente",
+        "foto": "cel3.png"
+    },
+    {
+        "cliente": "Juan",
+        "marca": "huawei",
+        "modelo": "super2",
+        "problema": "no sirve",
+        "costo": "50",
+        "estado": "Pendiente",
+        "foto": "cel4.png"
+    },
+
+        {
+        "cliente": "Frida",
+        "marca": "Iphone",
+        "modelo": "18 pro max",
+        "problema": "no carga completo",
+        "costo": "5000",
+        "estado": "Terminado",
+        "foto": "cel5.png"
+    },
+
+        {
+        "cliente": "Sofia",
+        "marca": "Honor",
+        "modelo": "5 mil",
+        "problema": "no sirve nada",
+        "costo": "50",
+        "estado": "Pendiente",
+        "foto": "cel6.png"
+    },
+
+        {
+        "cliente": "Goku",
+        "marca": "Sayayin",
+        "modelo": "3",
+        "problema": "apunto de explotar",
+        "costo": "1.5",
+        "estado": "desmantelamiento",
+        "foto": "cel7.png"
+    },
+
+
+    {
+        "cliente": "Jesus",
+        "marca": "Flox",
+        "modelo": "16721",
+        "problema": "unicmente esteticos",
+        "costo": "500000",
+        "estado": "En reparación",
+        "foto": "cel8.png"
+    }
+    
+]
