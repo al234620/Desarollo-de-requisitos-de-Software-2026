@@ -1,0 +1,47 @@
+[
+    {
+        "Nombre": "Maximus",
+        "Tipo de animal": "Perro",
+        "Servicio": "Vacuna",
+        "Fecha": "25 de octubre 2026",
+        "Costo de la cita": "2500",
+        "Hora": "5:00 PM",
+        "foto": "paciente1.png"
+    },
+    {
+        "Nombre": "Bruno",
+        "Tipo de animal": "Perro",
+        "Servicio": "Consulta general",
+        "Fecha": "26 de octubre 2026",
+        "Costo de la cita": "1000",
+        "Hora": "10:30 AM",
+        "foto": "paciente2.png"
+    },
+    {
+        "Nombre": "Rocky",
+        "Tipo de animal": "Perro",
+        "Servicio": "Desparasitación",
+        "Fecha": "27 de octubre 2026",
+        "Costo de la cita": "1060",
+        "Hora": "1:00 PM",
+        "foto": "paciente3.png"
+    },
+    {
+        "Nombre": "Luna",
+        "Tipo de animal": "Perro",
+        "Servicio": "Revisión médica",
+        "Fecha": "28 de octubre 2026",
+        "Costo de la cita": "850",
+        "Hora": "4:30 PM",
+        "foto": "paciente4.png"
+    },
+    {
+        "Nombre": "Diablo",
+        "Tipo de animal": "Gato",
+        "Servicio": "Vacuna",
+        "Fecha": "2026-10-14",
+        "Costo de la cita": "700",
+        "Hora": "10:30",
+        "foto": "paciente5.png"
+    }
+]

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Veterinaria</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header class="topbar">
+    <div>
+        <h1> Clínica Veterinaria</h1>
+        <span>Control de citas y pacientes</span>
+    </div>
+
+    <div class="top-actions">
+        <span>
+            Bienvenido,
+            <strong>{{ usuario }}</strong>
+        </span>
+
+        <a href="{{ url_for('logout') }}" class="logout">Cerrar sesión</a>
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="hero">
+        <div>
+            <p class="eyebrow">PANEL PRINCIPAL</p>
+            <h2>Citas de pacientes</h2>
+            <p class="muted">
+                Registra, consulta y administra las citas de la clínica.
+            </p>
+        </div>
+
+        <div class="hero-actions">
+            <a href="{{ url_for('exportar') }}" class="secondary-button">
+                Exportar CSV
+            </a>
+
+            <a href="#nuevo" class="primary-button">
+                + Registrar cita
+            </a>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stat">
+            <span>Pacientes registrados</span>
+            <strong>{{ total_pacientes }}</strong>
+        </div>
+
+        <div class="stat">
+            <span>Citas mostradas</span>
+            <strong>{{ pacientes|length }}</strong>
+        </div>
+
+        <div class="stat">
+            <span>Usuario activo</span>
+            <strong class="user-stat">{{ usuario }}</strong>
+        </div>
+    </section>
+
+    <section class="search-section">
+        <form method="GET" action="{{ url_for('index') }}" class="search-form">
+            <input
+                type="text"
+                name="buscar"
+                value="{{ busqueda }}"
+                placeholder="Buscar por nombre, animal o servicio..."
+            >
+            <button type="submit" class="primary-button">Buscar</button>
+
+            {% if busqueda %}
+            <a href="{{ url_for('index') }}" class="clear-button">Limpiar</a>
+            {% endif %}
+        </form>
+    </section>
+
+    <section class="patients">
+        {% for paciente in pacientes %}
+        <article class="patient-card">
+            <div class="patient-image">
+                {% if paciente.foto %}
+                <img
+                    src="{{ url_for('foto', nombre=paciente.foto) }}"
+                    alt="Fotografía de {{ paciente['Nombre'] }}"
+                >
+                {% else %}
+                <div class="no-photo">🐾</div>
+                {% endif %}
+            </div>
+
+            <div class="patient-content">
+                <span class="animal-tag">{{ paciente['Tipo de animal'] }}</span>
+
+                <h3>{{ paciente['Nombre'] }}</h3>
+
+                <p>
+                    <strong>Servicio:</strong>
+                    {{ paciente['Servicio'] }}
+                </p>
+
+                <p>
+                    <strong>Fecha:</strong>
+                    {{ paciente['Fecha'] }}
+                </p>
+
+                <p>
+                    <strong>Hora:</strong>
+                    {{ paciente['Hora'] }}
+                </p>
+
+                <div class="price">
+                    ${{ paciente['Costo de la cita'] }}
+                </div>
+
+                <form
+                    method="POST"
+                    action="{{ url_for('eliminar', indice=paciente['_indice']) }}"
+                    onsubmit="return confirm('¿Eliminar esta cita?');"
+                >
+                    <button type="submit" class="delete-button">
+                        Eliminar cita
+                    </button>
+                </form>
+            </div>
+        </article>
+        {% else %}
+        <div class="empty-state">
+            No se encontraron pacientes con esa búsqueda.
+        </div>
+        {% endfor %}
+    </section>
+
+    <section id="nuevo" class="new-appointment">
+        <div class="section-title">
+            <p class="eyebrow">REGISTRO</p>
+            <h2>Registrar nueva cita</h2>
+            <p class="muted">
+                Ingresa la información del paciente y su cita.
+            </p>
+        </div>
+
+        <form
+            method="POST"
+            action="{{ url_for('nueva_cita') }}"
+            enctype="multipart/form-data"
+            class="appointment-form"
+        >
+            <div>
+                <label>Nombre de la mascota</label>
+                <input type="text" name="nombre" required>
+            </div>
+
+            <div>
+                <label>Tipo de animal</label>
+                <select name="tipo_animal" required>
+                    <option value="">Selecciona una opción</option>
+                    <option>Perro</option>
+                    <option>Gato</option>
+                    <option>Ave</option>
+                    <option>Conejo</option>
+                    <option>Otro</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Servicio</label>
+                <input
+                    type="text"
+                    name="servicio"
+                    placeholder="Vacuna, consulta, revisión..."
+                    required
+                >
+            </div>
+
+            <div>
+                <label>Costo de la cita</label>
+                <input
+                    type="number"
+                    name="costo"
+                    min="0"
+                    step="0.01"
+                    required
+                >
+            </div>
+
+            <div>
+                <label>Fecha</label>
+                <input type="date" name="fecha" required>
+            </div>
+
+            <div>
+                <label>Hora</label>
+                <input type="time" name="hora" required>
+            </div>
+
+            <div class="full">
+                <label>Fotografía del paciente</label>
+                <input
+                    type="file"
+                    name="foto"
+                    accept=".png,.jpg,.jpeg,.webp"
+                    required
+                >
+            </div>
+
+            <div class="full">
+                <button type="submit" class="primary-button">
+                    Guardar cita
+                </button>
+            </div>
+        </form>
+    </section>
+
+</main>
+
+</body>
+</html>
